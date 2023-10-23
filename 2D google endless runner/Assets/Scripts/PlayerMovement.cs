@@ -47,9 +47,10 @@ public class PlayerMovement : MonoBehaviour
     {
         //Debug.Log(collision.gameObject);
 
-        if(collision.gameObject.CompareTag("OB"))
+        if(collision.gameObject.CompareTag("enemy"))
         {
             //end game 
+            GameManager.Instance.GameOver();
         }
         else if(collision.gameObject.CompareTag("Grounded"))
         {
@@ -59,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("DoubleJump"))
+        if(collision.gameObject.CompareTag(""))
         {
             //give player double jump
             maxNumJumps = 2;
@@ -70,9 +71,9 @@ public class PlayerMovement : MonoBehaviour
 
 
         }
-        else if(collision.gameObject.CompareTag("CoinCollectable"))
+        else if(collision.gameObject.CompareTag("enemy"))
         {
-            
+            GameManager.Instance.GameOver();
         }
     }
     

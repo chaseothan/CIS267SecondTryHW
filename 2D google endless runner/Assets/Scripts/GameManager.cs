@@ -2,10 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
 
+
+    public TextMeshProUGUI gameOverText;
+    public Button retryButton;
+
+
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI highScoreText;
+
+    private float score;
 
     public static GameManager Instance { get; private set; }
 
@@ -13,6 +24,9 @@ public class GameManager : MonoBehaviour
     public float initialGameSpeed = 2f;
     public float gameSpeedIncrease = .1f;
     public float gameSpeed {  get; private set; }
+
+    private PlayerMovement player;
+    private SpawnerScript spawner;
 
 
 
@@ -23,6 +37,7 @@ public class GameManager : MonoBehaviour
         {
             DestroyImmediate(gameObject);
         }
+
     }
 
 
@@ -36,17 +51,71 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        NewGame();
+        player = FindObjectOfType<PlayerMovement>();
+        spawner = FindObjectOfType<SpawnerScript>();
+
+        GameOver();
     }
 
-    private void NewGame()
+    public void NewGame()
     {
+        
+
+
         gameSpeed = initialGameSpeed;
+        enabled = true;
+
+        player.gameObject.SetActive(true);
+        spawner.gameObject.SetActive(true);
+
+
+        gameOverText.gameObject.SetActive(false);
+        retryButton.gameObject.SetActive(false);
+
+        UpdateHighScore();
+
+        score = 0;
+
+    }
+
+    public void GameOver()
+    {
+        gameSpeed = 0f;
+        enabled = false;
+
+        player.gameObject.SetActive(false);
+        spawner.gameObject.SetActive(false);
+
+
+        gameOverText.gameObject.SetActive(true);
+        retryButton.gameObject.SetActive(true);
+
+        UpdateHighScore();
+
     }
 
     private void Update()
     {
         gameSpeed += gameSpeedIncrease * Time.deltaTime;
+
+        score += gameSpeed * Time.deltaTime;
+
+        scoreText.text = Mathf.FloorToInt(score).ToString("D5");
+
+
+    }
+
+    private void UpdateHighScore()
+    {
+        float highScore = PlayerPrefs.GetFloat("highScore", 0);
+
+        if (score > highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetFloat("highScore", highScore);
+        }
+
+        highScoreText.text = Mathf.FloorToInt(highScore).ToString("D5");
 
     }
 
