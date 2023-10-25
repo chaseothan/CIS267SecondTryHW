@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,6 +14,16 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     private int numJumps;
     private int maxNumJumps;
+
+
+    public void DestroyObjects(string tag)
+    {
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag(tag);
+        foreach (GameObject target in gameObjects)
+        {
+            GameObject.Destroy(target);
+        }
+    }
 
 
     // Start is called before the first frame update
@@ -43,14 +55,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log(collision.gameObject);
+        
 
-        if(collision.gameObject.CompareTag("enemy"))
+        if(collision.gameObject.CompareTag("Clear"))
         {
-            //end game 
-            GameManager.Instance.GameOver();
+    
         }
         else if(collision.gameObject.CompareTag("Grounded"))
         {
@@ -62,8 +75,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.gameObject.CompareTag(""))
         {
-            //give player double jump
-            maxNumJumps = 2;
+          
             //delete object from screen
             Destroy(collision.gameObject);
 
@@ -75,6 +87,28 @@ public class PlayerMovement : MonoBehaviour
         {
             GameManager.Instance.GameOver();
         }
+        else if (collision.gameObject.CompareTag("Clear"))
+        {
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("enemy");
+            foreach (GameObject target in gameObjects)
+            {
+                GameObject.Destroy(target);
+            }
+            GameObject[] gameeObjects = GameObject.FindGameObjectsWithTag("Clear");
+            foreach (GameObject target in gameeObjects)
+            {
+                GameObject.Destroy(target);
+            }
+        }
+        else if (collision.gameObject.CompareTag("ScoreMultiplier"))
+        {
+            
+        }
+        else if (collision.gameObject.CompareTag("Gun"))
+        {
+            
+        }
     }
-    
+
+   
 }

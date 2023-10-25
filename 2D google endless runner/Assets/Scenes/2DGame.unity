@@ -155,7 +155,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverText: {fileID: 1079709371}
   retryButton: {fileID: 2138647702}
-  startButton: {fileID: 0}
   scoreText: {fileID: 790055597}
   highScoreText: {fileID: 1900028928}
   initialGameSpeed: 2
@@ -788,10 +787,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: START GAME
+  m_text: 'ALIEN RUNNER
+
+    START GAME'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -815,8 +816,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1148,6 +1149,7 @@ GameObject:
   - component: {fileID: 1561483685}
   - component: {fileID: 1561483686}
   - component: {fileID: 1561483687}
+  - component: {fileID: 1561483688}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1331,6 +1333,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1561483688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561483679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0874aac1540ac6b43bd5a96dcf81fd32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1874093174
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,11 +1391,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - prefab: {fileID: 2219530226434006274, guid: 22667ada7976a354d875e151b9d27205, type: 3}
-    spawnChance: 0.4
-  - prefab: {fileID: 3967439629625052895, guid: 66b2f8a784e31ed4cacdb4974894dcce, type: 3}
     spawnChance: 0.3
+  - prefab: {fileID: 3967439629625052895, guid: 66b2f8a784e31ed4cacdb4974894dcce, type: 3}
+    spawnChance: 0.2
+  - prefab: {fileID: 7323320756378983812, guid: 0c98ad3ef8a20ad4b9e0e933dc86bbed, type: 3}
+    spawnChance: 0.1
   - prefab: {fileID: 8674036298601501450, guid: 888f35925f6515d4d95202dba1481e91, type: 3}
     spawnChance: 0.1
+  - prefab: {fileID: 8921581742907774530, guid: 7532f42873e2e204a9a1d5c700717740, type: 3}
+    spawnChance: 0.05
+  - prefab: {fileID: 4256804543097190401, guid: c2b1955b72c4d17418f09a20be7f34f7, type: 3}
+    spawnChance: 0.05
   minSpawnRate: 1
   maxSpawnRate: 2
 --- !u!1 &1900028926
@@ -1665,8 +1685,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -72.1}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0.0046387, y: -0.0016479}
+  m_SizeDelta: {x: 2050.6, y: 1008.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2138647702
 MonoBehaviour:
@@ -1736,6 +1756,42 @@ MonoBehaviour:
           m_StringArgument: enemy
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 60846923}
+        m_TargetAssemblyTypeName: DestoryEnemy, Assembly-CSharp
+        m_MethodName: DestroyObjects
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Clear
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 60846923}
+        m_TargetAssemblyTypeName: DestoryEnemy, Assembly-CSharp
+        m_MethodName: DestroyObjects
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Gun
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 60846923}
+        m_TargetAssemblyTypeName: DestoryEnemy, Assembly-CSharp
+        m_MethodName: DestroyObjects
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ScoreMultiplier
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2138647703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1749,7 +1805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8980393, g: 0.050980397, b: 0.050980397, a: 1}
+  m_Color: {r: 0.050980374, g: 0.16854964, b: 0.8980392, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

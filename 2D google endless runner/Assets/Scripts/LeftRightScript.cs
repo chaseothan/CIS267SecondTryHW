@@ -6,13 +6,13 @@ public class LeftRightScript : MonoBehaviour
 {
     public float movementSpeed;
     public float offset;
-    private bool moveUp;
-    private float startPosY;
+    private bool moveLeft;
+    private float startPosx;
     // Start is called before the first frame update
     void Start()
     {
-        startPosY = transform.position.x;
-        moveUp = false;
+        startPosx = transform.position.x;
+        moveLeft = false;
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class LeftRightScript : MonoBehaviour
     public void moveLilguy()
     {
 
-        if (moveUp)
+        if (moveLeft)
         {
 
             //move left
@@ -37,14 +37,14 @@ public class LeftRightScript : MonoBehaviour
         }
 
 
-        if (transform.position.x >= startPosY)
+        if (transform.position.x >= startPosx)
         {
-            moveUp = false;
+            moveLeft = false;
         }
 
-        if (transform.position.x <= startPosY - offset)
+        if (transform.position.x <= startPosx - offset)
         {
-            moveUp = true;
+            moveLeft = true;
         }
         //move side to side like we did with the saw 
 

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Grounded
   - enemy
+  - Clear
+  - Gun
+  - ScoreMultiplier
   layers:
   - Default
   - TransparentFX

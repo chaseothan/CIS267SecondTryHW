@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     public float initialGameSpeed = 2f;
     public float gameSpeedIncrease = .1f;
-    public float gameSpeed {  get; private set; }
+    public float gameSpeed { get; private set; }
 
     private PlayerMovement player;
     private SpawnerScript spawner;
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         if (Instance == null) { Instance = this; }
-        else 
+        else
         {
             DestroyImmediate(gameObject);
         }
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
-        
+
 
 
         gameSpeed = initialGameSpeed;
@@ -119,5 +119,17 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("ScoreMultiplier"))
+        {
 
+            //delete object from screen
+            Destroy(collision.gameObject);
+
+            //make this do something else later
+            score = 0;
+
+        }
+    }
 }
