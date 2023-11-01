@@ -8,6 +8,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject gunProjectile;
     private Rigidbody2D playerRigidBody;
     public float movementSpeed;
     private float inputHorizontal;
@@ -73,17 +74,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag(""))
-        {
+        //if(collision.gameObject.CompareTag(""))
+        //{
           
-            //delete object from screen
-            Destroy(collision.gameObject);
+        //    //delete object from screen
+        //    Destroy(collision.gameObject);
 
-            //make this do something else later
+        //    //make this do something else later
 
 
-        }
-        else if(collision.gameObject.CompareTag("enemy"))
+        //}
+        if(collision.gameObject.CompareTag("enemy"))
         {
             GameManager.Instance.GameOver();
         }
@@ -102,11 +103,16 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("ScoreMultiplier"))
         {
-            
+            GameManager.Instance.setScore(GameManager.Instance.getScore() * 2);
+            Destroy(collision.gameObject);
         }
         else if (collision.gameObject.CompareTag("Gun"))
         {
-            
+            GameObject projectile = Instantiate(gunProjectile);
+
+            projectile.transform.position = collision.gameObject.transform.position;
+
+            Destroy(collision.gameObject);
         }
     }
 

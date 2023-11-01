@@ -132,4 +132,14 @@ public class GameManager : MonoBehaviour
 
         }
     }
+
+    public float getScore()
+    {
+        return score;
+    }
+
+    public void setScore(float newScore)
+    {
+        score = newScore;
+    }
 }

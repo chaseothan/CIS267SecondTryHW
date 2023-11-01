@@ -1144,12 +1144,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1561483683}
   - component: {fileID: 1561483682}
-  - component: {fileID: 1561483680}
   - component: {fileID: 1561483684}
   - component: {fileID: 1561483685}
   - component: {fileID: 1561483686}
   - component: {fileID: 1561483687}
-  - component: {fileID: 1561483688}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1157,18 +1155,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1561483680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561483679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72bc3a6e40f78d41890a9e2751913a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1561483682
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1310,6 +1296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b1c00a892cdb4c43bf51f495cc47919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunProjectile: {fileID: 2740501147733666473, guid: e09984d1c8c48b344b3988c881d61d89, type: 3}
   movementSpeed: 0
   jumpForce: 8
 --- !u!95 &1561483687
@@ -1333,18 +1320,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1561483688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561483679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0874aac1540ac6b43bd5a96dcf81fd32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1874093174
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,13 +1370,13 @@ MonoBehaviour:
   - prefab: {fileID: 3967439629625052895, guid: 66b2f8a784e31ed4cacdb4974894dcce, type: 3}
     spawnChance: 0.2
   - prefab: {fileID: 7323320756378983812, guid: 0c98ad3ef8a20ad4b9e0e933dc86bbed, type: 3}
-    spawnChance: 0.1
+    spawnChance: 0.15
   - prefab: {fileID: 8674036298601501450, guid: 888f35925f6515d4d95202dba1481e91, type: 3}
-    spawnChance: 0.1
+    spawnChance: 0.2
   - prefab: {fileID: 8921581742907774530, guid: 7532f42873e2e204a9a1d5c700717740, type: 3}
-    spawnChance: 0.05
+    spawnChance: 0.15
   - prefab: {fileID: 4256804543097190401, guid: c2b1955b72c4d17418f09a20be7f34f7, type: 3}
-    spawnChance: 0.05
+    spawnChance: 0.2
   minSpawnRate: 1
   maxSpawnRate: 2
 --- !u!1 &1900028926
